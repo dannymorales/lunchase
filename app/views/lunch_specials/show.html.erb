@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lunch_special.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lunch_special.description %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @lunch_special.restaurant %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @lunch_special.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @lunch_special.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @lunch_special.state %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @lunch_special.zip_code %>
+</p>
+
+<p>
+  <strong>Image name:</strong>
+  <%= @lunch_special.image_name %>
+</p>
+
+<p>
+  <strong>Image content type:</strong>
+  <%= @lunch_special.image_content_type %>
+</p>
+
+<p>
+  <strong>Image file size:</strong>
+  <%= @lunch_special.image_file_size %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @lunch_special.price %>
+</p>
+
+<p>
+  <strong>Calories:</strong>
+  <%= @lunch_special.calories %>
+</p>
+
+<%= link_to 'Edit', edit_lunch_special_path(@lunch_special) %> |
+<%= link_to 'Back', lunch_specials_path %>

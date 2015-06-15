@@ -1,0 +1,1 @@
+json.extract! @lunch_special, :id, :title, :description, :restaurant, :address, :city, :state, :zip_code, :image_name, :image_content_type, :image_file_size, :price, :calories, :created_at, :updated_at
