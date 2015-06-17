@@ -23,15 +23,20 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5.1'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'geocoder', '~> 1.2.9'
 gem 'actionmailer', '~> 4.2.1'
 gem 'gmaps4rails', '~> 2.1.2'
-gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'paperclip', '~> 4.2.2'
 #carrierwave is to upload multiple files/photos.
 gem 'carrierwave', '~> 0.10.0'
 gem 'activeadmin'
+gem 'has_scope'
+gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
+
 
 
 # Use ActiveModel has_secure_password

@@ -1,49 +1,44 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Lunch Specials</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Restaurant</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip code</th>
-      <th>Image name</th>
-      <th>Image content type</th>
-      <th>Image file size</th>
-      <th>Price</th>
-      <th>Calories</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lunch_specials.each do |lunch_special| %>
-      <tr>
-        <td><%= lunch_special.title %></td>
-        <td><%= lunch_special.description %></td>
-        <td><%= lunch_special.restaurant %></td>
-        <td><%= lunch_special.address %></td>
-        <td><%= lunch_special.city %></td>
-        <td><%= lunch_special.state %></td>
-        <td><%= lunch_special.zip_code %></td>
-        <td><%= lunch_special.image_name %></td>
-        <td><%= lunch_special.image_content_type %></td>
-        <td><%= lunch_special.image_file_size %></td>
-        <td><%= lunch_special.price %></td>
-        <td><%= lunch_special.calories %></td>
-        <td><%= link_to 'Show', lunch_special %></td>
-        <td><%= link_to 'Edit', edit_lunch_special_path(lunch_special) %></td>
-        <td><%= link_to 'Destroy', lunch_special, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <div class="row">
+    <%= link_to new_lunch_special_path do %>
+      <i class="fi-plus"></i>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+<% @lunch_specials.each do |lunch_special| %>
+  
+  <div id="content" class="row">
+    <div id="col1" class="column">
+        map goes here
+    </div>
+    <div id="col2" class="column">
+        <h5><%= lunch_special.title %></h5> 
+            <%= lunch_special.description %>
+            <%= lunch_special.calories %>
+            
+            <%= link_to 'Show', lunch_special %>
+    </div>
+    <div id="col3" class="column">
+        <h5>$<%= lunch_special.price %></h5>
+        votes go here
+            
+            
+    </div>
+  </div> 
+  <% end %> 
+  </div>
 
-<%= link_to 'New Lunch special', new_lunch_special_path %>
+</div>
+
+        
+
+      
+
+
+    
+            
+      
+
+
+
+

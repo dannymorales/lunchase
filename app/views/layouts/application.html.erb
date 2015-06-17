@@ -1,16 +1,55 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Lunchase</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "Lunchase" %></title>
+    <meta name="viewport" content="initial-scale=1">
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body>
+
+  <div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar" data-options="sticky_on: large">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title">Lunchase</h1>
+      </section>
+
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Menu</label></li>
+        <li><%= link_to "home", lunch_specials_path %></li>
+        <% if user_signed_in? %>
+        	<li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        	<li><%= link_to "login", new_user_session_path %></li>
+        <% end %>
+        
+      </ul>
+    </aside>
+
+    <section class="main-section">
+      <%= yield %>
+    </section>
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
+
+    
+
+  </body>
 </html>

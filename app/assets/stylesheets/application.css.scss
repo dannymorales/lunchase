@@ -12,4 +12,44 @@
  *
  *= require_tree .
  *= require_self
+
+ //= require foundation_and_overrides
+
  */
+@import "foundation_and_overrides";
+@import 'foundation-icons';
+
+
+#content{
+  width: 100%;
+  border: 1px solid;
+  margin: 1% auto;
+
+	#col1{
+		width: 20%;
+		float: left;
+		
+	}
+	#col2{
+		width: 60%;
+		float: left;
+	
+	}
+	#col3{
+		width: 10%;
+		float: left;
+		
+	}
+}
+
+.fi-plus{
+  float: right;
+  font-size: 40px;
+  padding:10px;
+}
+
+
+
+
+
+

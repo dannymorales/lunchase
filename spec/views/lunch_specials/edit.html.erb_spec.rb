@@ -27,15 +27,9 @@ RSpec.describe "lunch_specials/edit", type: :view do
 
       assert_select "input#lunch_special_description[name=?]", "lunch_special[description]"
 
-      assert_select "input#lunch_special_restaurant[name=?]", "lunch_special[restaurant]"
+      assert_select "input#lunch_special_restaurant_name[name=?]", "lunch_special[restaurant]"
 
-      assert_select "input#lunch_special_address[name=?]", "lunch_special[address]"
-
-      assert_select "input#lunch_special_city[name=?]", "lunch_special[city]"
-
-      assert_select "input#lunch_special_state[name=?]", "lunch_special[state]"
-
-      assert_select "input#lunch_special_zip_code[name=?]", "lunch_special[zip_code]"
+      assert_select "input#lunch_special_restaurant_address[name=?]", "lunch_special[address]"
 
       assert_select "input#lunch_special_image_name[name=?]", "lunch_special[image_name]"
 
