@@ -19,18 +19,15 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+  <div class="field">
+    <%= f.label :restaurant_name %><br>
+    <%= f.text_field :restaurant_name %>
+  </div>
+  <div class="field">
+    <%= f.label :upload_a_photo %><br> 
+    <%= f.file_field :avatar %>
+  </div>  
   
-  <div class="field">
-    <%= f.label :image_name %><br>
-    <%= f.text_field :image_name %>
-  </div>
-  <div class="field">
-    <%= f.label :image_content_type %><br>
-    <%= f.text_field :image_content_type %>
-  </div>
-  <div class="field">
-    <%= f.label :image_file_size %><br>
-    <%= f.number_field :image_file_size %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
