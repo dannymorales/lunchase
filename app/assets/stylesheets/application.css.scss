@@ -28,17 +28,24 @@
 	#col1{
 		width: 20%;
 		float: left;
-		
 	}
+
 	#col2{
-		width: 60%;
+		width: 65%;
 		float: left;
-	
 	}
 	#col3{
-		width: 10%;
+		width: 15%;
 		float: left;
+		text-align: right;
 		
+		ul li{
+			display: inline;
+			list-style-type: none;
+			font-size: 20px;
+			margin: 0 5px;
+			position: static;
+		}		
 	}
 }
 
@@ -46,6 +53,9 @@
   float: right;
   font-size: 40px;
   padding:10px;
+}
+.price{
+	float: right;
 }
 
 .votes li{
@@ -56,8 +66,12 @@
 	margin: 0 20px;
 }
 .fi-like{
-	width: 50px;
+	width: 5px;
+	color: black;
 }
+
+
+
 
 
 

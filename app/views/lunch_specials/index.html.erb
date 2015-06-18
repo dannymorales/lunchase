@@ -9,16 +9,45 @@
   
   <div id="content" class="row">
     <div id="col1" class="column">
-        map goes here
+      <%= link_to(image_tag lunch_special.avatar.url(:thumb), class: "image")%>
     </div>
     <div id="col2" class="column">
-        <h5><%= lunch_special.title %></h5> 
-            <%= lunch_special.description %>
+      <div id="col2row" class="row">
+        <div id="secol1">
+          <h5><%= lunch_special.title %></h5> 
+            <%= lunch_special.description %>  
             <%= lunch_special.calories %>
+        </div>
+        <div>
+          <%= lunch_special.restaurant_name %>
+        </div>
+        
+      </div>
+        
             
     </div>
     <div id="col3" class="column">
-        <h5>$<%= lunch_special.price %></h5>
+      <div id="pricerow">
+        <h3>$<%= lunch_special.price %></h3>
+      </div>
+        <div id="votesrow">
+          <ul class="votes">
+          <li><%= link_to like_lunch_special_path(lunch_special), method: :put do %>
+            <i class="fi-like"></i>
+           
+          <%= lunch_special.get_upvotes.size %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to dislike_lunch_special_path(lunch_special), method: :put do %>
+            <i class="fi-dislike"></i>
+            
+            <%= lunch_special.get_downvotes.size %>
+            <% end %>
+          </li>
+        </ul>
+        </div>
+        
         
      <%= link_to "show", lunch_special %>   
             
