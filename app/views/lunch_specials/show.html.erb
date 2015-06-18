@@ -39,6 +39,20 @@
 <td><%= link_to 'Destroy', lunch_special_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <%= link_to 'Edit', edit_lunch_special_path(@lunch_special) %> |
 <% end %>
-
+<ul class="votes">
+          <li><%= link_to like_lunch_special_path, method: :put do %>
+            <i class="fi-like"></i>
+           
+          <%= @lunch_special.get_upvotes.size %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to dislike_lunch_special_path, method: :put do %>
+            <i class="fi-dislike"></i>
+            
+            <%= @lunch_special.get_downvotes.size %>
+            <% end %>
+          </li>
+        </ul>
 
 <%= link_to 'Back', lunch_specials_path %>
