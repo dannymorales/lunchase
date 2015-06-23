@@ -1,6 +1,6 @@
 
   <div class="row">
-    <%= link_to new_lunch_special_path do %>
+    <%= link_to restaurants_path do %>
       <i class="fi-plus"></i>
     <% end %>
   </div>
@@ -12,16 +12,21 @@
       <%= link_to(image_tag lunch_special.avatar.url(:thumb), class: "image")%>
     </div>
     <div id="col2" class="column">
-      <div id="col2row" class="row">
+      <div id="col2row1" class="row">
         <div id="secol1">
           <h5><%= lunch_special.title %></h5> 
-            <%= lunch_special.description %>  
-            <%= lunch_special.calories %>
+          <%= lunch_special.description %>  
         </div>
-       
-        
+        <div id="secol2">
+          Cal <%= lunch_special.calories %> <br>
+        </div> 
       </div>
-        
+      
+      <div id="col2row2">
+         <%= lunch_special.restaurant.name %>
+         <%= lunch_special.restaurant.address %>
+         <%= lunch_special.restaurant.state %>
+      </div>
             
     </div>
     <div id="col3" class="column">

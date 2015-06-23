@@ -35,5 +35,18 @@
   <%= @restaurant.webpage %>
 </p>
 
+<div id="lunchspecials" >
+<% if current_user %>
+  <p>Add lunch special</p>
+  <%= render 'lunch_specials/form' %>
+
+  This restaurant has <%= @restaurant.lunch_specials.count %> lunch specials
+
+  <%= render partial: @restaurant.lunch_specials %>
+
+</div>
+
+<% end %>
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

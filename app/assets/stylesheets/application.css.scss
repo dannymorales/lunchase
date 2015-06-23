@@ -33,11 +33,20 @@
 	#col2{
 		width: 65%;
 		float: left;
+		#col2row1{
+
+			height: 90%;
+			#secol1{
+				float: left;
+				width: 90%
+			}
+		}
 	}
 	#col3{
 		width: 15%;
 		float: left;
 		text-align: right;
+
 		
 		ul li{
 			display: inline;
