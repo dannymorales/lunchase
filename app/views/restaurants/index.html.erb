@@ -1,6 +1,13 @@
+<%= search_form_for @search do |f|%>
+  <%= f.label :name_or_address_cont, "Search by name or address" %>
+  <%= f.search_field :name_or_address_cont %>
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end %>
 
+<% if @search.result.empty? %>
 
-<h1>Listing Restaurants</h1>
+<h4>No restaurant was found, please click  <%= link_to 'HERE', new_restaurant_path %> to add new</h4> 
+<% else %>
 
 <table>
   <thead>
@@ -33,6 +40,6 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+
+<% end %>
