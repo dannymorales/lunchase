@@ -4,4 +4,5 @@ class Restaurant < ActiveRecord::Base
 	validates :address, presence: true
 	# validate_uniqueness_of :restaurant_address
 	validates :state, presence: true
+
 end
