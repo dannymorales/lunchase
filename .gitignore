@@ -16,4 +16,4 @@
 !/log/.keep
 /tmp
 
-/initializers/omniauth.rb
+/config/initializers/omniauth.rb
