@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Listing Restaurants</h1>
 
@@ -26,9 +26,8 @@
         <td><%= restaurant.zip_code %></td>
         <td><%= restaurant.telephone %></td>
         <td><%= restaurant.webpage %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show ', restaurant %></td>
+        
       </tr>
     <% end %>
   </tbody>
