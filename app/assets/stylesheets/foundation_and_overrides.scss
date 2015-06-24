@@ -70,7 +70,7 @@
 
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-html-classes: true;
-// $include-print-styles: true;
+$include-print-styles: true;
 $include-html-global-classes: $include-html-classes;
 
 // b. Grid
@@ -435,7 +435,7 @@ $column-gutter: rem-calc(30);
 // 05. Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-button-classes: $include-html-classes;
+$include-html-button-classes: $include-html-classes !default;
 
 // We use these to build padding for buttons.
 // $button-tny: rem-calc(10);
@@ -449,8 +449,8 @@ $column-gutter: rem-calc(30);
 
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
-// $button-font-color: $white;
-// $button-font-color-alt: $oil;
+$button-font-color: #0079a3;
+$button-font-color-alt: #0079a3;
 // $button-font-tny: rem-calc(11);
 // $button-font-sml: rem-calc(13);
 // $button-font-med: rem-calc(16);
@@ -464,7 +464,7 @@ $column-gutter: rem-calc(30);
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+// $button-bg-color: #0079a3;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -477,10 +477,6 @@ $column-gutter: rem-calc(30);
 // $warning-button-border-color: $warning-button-bg-hover;
 // $info-button-bg-hover: scale-color($info-color, $lightness: $button-function-factor);
 // $info-button-border-color: $info-button-bg-hover;
-
-// We use this to set the default radius used throughout the core.
-// $button-radius: $global-radius;
-// $button-round: $global-rounded;
 
 // We use this to set default opacity and cursor for disabled buttons.
 // $button-disabled-opacity: .7;
@@ -710,8 +706,8 @@ $column-gutter: rem-calc(30);
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // We use these to style the icon-bar and items
-// $icon-bar-bg: $oil;
-// $icon-bar-font-color: $white;
+// $icon-bar-bg: $aluminum;
+$icon-bar-font-color: #0079a3;
 // $icon-bar-font-color-hover: $icon-bar-font-color;
 // $icon-bar-font-size: 1rem;
 // $icon-bar-hover-color: $primary-color;
@@ -835,12 +831,15 @@ $column-gutter: rem-calc(30);
 // Off Canvas Tab Bar Variables
 // $include-html-off-canvas-classes: $include-html-classes;
 
-// $tabbar-bg: $oil;
+// $tabbar-bg: $aluminum;
 // $tabbar-height: rem-calc(45);
 // $tabbar-icon-width: $tabbar-height;
 // $tabbar-line-height: $tabbar-height;
 // $tabbar-color: $white;
 // $tabbar-middle-padding: 0 rem-calc(10);
+
+
+
 
 // Off Canvas Divider Styles
 // $tabbar-left-section-border: solid 1px scale-color($tabbar-bg, $lightness: -50%);
@@ -855,7 +854,7 @@ $column-gutter: rem-calc(30);
 
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
-// $off-canvas-bg: $oil;
+$off-canvas-bg: #0079a3;
 // $off-canvas-bg-hover: scale-color($tabbar-bg, $lightness: -30%);
 // $off-canvas-bg-active: scale-color($tabbar-bg, $lightness: -30%);
 
@@ -1400,8 +1399,8 @@ $column-gutter: rem-calc(30);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: #f0f0f0;
+$topbar-bg: #0079a3;
 
 // Height and margin
 // $topbar-height: rem-calc(45);

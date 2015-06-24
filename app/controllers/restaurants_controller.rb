@@ -3,9 +3,7 @@ class RestaurantsController < InheritedResources::Base
 
 	def index	
 		@search = Restaurant.search(params[:q])
-	
 		@restaurants = @search.result(distint: true)
-
 	end
 
 	def new
@@ -27,6 +25,10 @@ class RestaurantsController < InheritedResources::Base
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
+		@hash = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
+  			marker.lat restaurant.latitude
+  			marker.lng restaurant.longitude
+		end
 	end
 
 	def edit

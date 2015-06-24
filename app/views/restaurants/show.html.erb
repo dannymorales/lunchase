@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<div style='width: 400px;'>
+  <div id="map" style='width: 400px; height: 200px;'></div>
+</div>
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>
@@ -24,6 +26,14 @@
   <strong>Zip code:</strong>
   <%= @restaurant.zip_code %>
 </p>
+<p>
+  <strong>latitude:</strong>
+  <%= @restaurant.latitude %>
+</p>
+<p>
+  <strong>longitude:</strong>
+  <%= @restaurant.longitude %>
+</p>
 
 <p>
   <strong>Telephone:</strong>
@@ -36,17 +46,25 @@
 </p>
 
 <div id="lunchspecials" >
-<% if current_user %>
+
   <p>Add lunch special</p>
   <%= render 'lunch_specials/form' %>
 
-  This restaurant has <%= @restaurant.lunch_specials.count %> lunch specials
-
+  This restaurant has <%= pluralize(@restaurant.lunch_specials.count, "lunch special") %> 
   <%= render partial: @restaurant.lunch_specials %>
 
 </div>
 
-<% end %>
-
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
+
+
