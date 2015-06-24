@@ -1,16 +1,4 @@
-<%= form_for(@lunch_special) do |f| %>
-  <% if @lunch_special.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@lunch_special.errors.count, "error") %> prohibited this lunch_special from being saved:</h2>
-
-      <ul>
-      <% @lunch_special.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for [@restaurant, LunchSpecial.new] do |f| %>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -37,4 +25,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

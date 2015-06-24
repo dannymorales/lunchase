@@ -8,10 +8,13 @@ class LunchSpecialsController < InheritedResources::Base
 
 	def new
 		@lunch_special = current_user.lunch_specials.build
+		
 	end
 
 	def create
-		@lunch_special = current_user.lunch_specials.build(lunch_special_params)
+		@restaurant = Restaurant.find(params[:restaurant_id])
+		@lunch_special = @restaurant.lunch_specials.create(lunch_special_params)
+		@lunch_special.restaurant = @restaurant
 		if @lunch_special.save
 			redirect_to @lunch_special, notice: "A new lunch special was created"
 		else
@@ -20,12 +23,12 @@ class LunchSpecialsController < InheritedResources::Base
 	end
 	def show
 		@lunch_special = LunchSpecial.find(params[:id])
-		@lunch_special.user
+		@lunch_special.restaurant
 	end
 
 	def edit
 		@lunch_special = LunchSpecial.find(params[:id])
-		@lunch_special.user
+		@lunch_special.restaurant
 	end
 
 	def update
@@ -60,6 +63,7 @@ class LunchSpecialsController < InheritedResources::Base
 
     def lunch_special_params
       params.require(:lunch_special).permit(:title, :description, :restaurant_name, :restaurant_address, :image_content_type, :image_file_size, :price, :calories, :restaurant_id, :avatar)
+      # params.require(:lunch_special).permit(:title, :description, :restaurant_name, :restaurant_address, :image_content_type, :image_file_size, :price, :calories, :restaurant_id, :avatar).merge(restaurant: params[:restaurant_id])
     end
 
 

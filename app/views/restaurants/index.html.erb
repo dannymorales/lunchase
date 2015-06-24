@@ -1,5 +1,5 @@
 <%= search_form_for @search do |f|%>
-  <%= f.label :name_or_address_cont, "Search by name or address" %>
+  <%= f.label :name_or_address_cont, "Select restaurant" %>
   <%= f.search_field :name_or_address_cont %>
   <%= f.submit "Submit", :disable_with => 'Submiting...' %>
 <% end %>
@@ -26,7 +26,7 @@
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
-        <td><%= restaurant.name %></td>
+        <td><%= link_to restaurant.name, restaurant %></td>
         <td><%= restaurant.address %></td>
         <td><%= restaurant.city %></td>
         <td><%= restaurant.state %></td>
