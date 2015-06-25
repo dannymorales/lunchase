@@ -23,6 +23,14 @@
 <td><%= link_to 'Destroy', lunch_special_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <%= link_to 'Edit', edit_lunch_special_path(@lunch_special) %> |
 <% end %>
+<%= link_to @lunch_special.restaurant.name, restaurant_path(@lunch_special.restaurant) %>
+         <%= @lunch_special.restaurant.address %>
+         <%= @lunch_special.restaurant.state %>
+
+<div style='width: 400px;'>
+  <div id="map" style='width: 400px; height: 200px;'></div>
+</div>
+
 <ul class="votes">
           <li><%= link_to like_lunch_special_path, method: :put do %>
             <i class="fi-like"></i>
@@ -38,5 +46,13 @@
             <% end %>
           </li>
         </ul>
-
 <%= link_to 'Lunch Specials', lunch_specials_path %>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>

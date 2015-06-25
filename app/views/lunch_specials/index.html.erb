@@ -1,3 +1,10 @@
+<div>
+<%= form_tag restaurants_path, method: :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Find specials", :disable_with => 'Finding...' %>
+  </p>
+<% end %>
 
   <div class="row">
     <%= link_to restaurants_path do %>
@@ -5,7 +12,18 @@
     <% end %>
   </div>
 
-<% @lunch_specials.each do |lunch_special| %>
+<div id='advance_search'>
+<%= search_form_for @search do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <%= link_to_add_fields "Add conditions", f, :condition %>
+  <%= f.submit "Search", class: "button" %> 
+<% end %>
+</div>
+
+<% for location in @lunch_special.restaurant.address %>
+  <% @lunch_specials.each do |lunch_special| %>
   
   <div id="content" class="row">
     <div id="col1" class="column">
@@ -23,7 +41,7 @@
       </div>
       
       <div id="col2row2">
-         <%= lunch_special.restaurant.name %>
+      <%= link_to lunch_special.restaurant.name, restaurant_path(lunch_special.restaurant) %>
          <%= lunch_special.restaurant.address %>
          <%= lunch_special.restaurant.state %>
       </div>
@@ -45,32 +63,19 @@
             <%= link_to dislike_lunch_special_path(lunch_special), method: :put do %>
             <i class="fi-dislike"></i>
             
-            <%= lunch_special.get_downvotes.size %>
+             <%= lunch_special.get_downvotes.size %>
             <% end %>
           </li>
         </ul>
         </div>
-        
-        
      <%= link_to "show", lunch_special %>   
-            
-            
     </div>
   </div> 
-  <% end %> 
+
+<% end %>
+<% end %>
   </div>
 
 </div>
 
-        
-
       
-
-
-    
-            
-      
-
-
-
-

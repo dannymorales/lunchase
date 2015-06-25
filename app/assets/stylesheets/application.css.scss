@@ -16,8 +16,10 @@
  //= require foundation_and_overrides
 
  */
-@import "foundation_and_overrides";
+// @import "foundation_and_overrides";
+
 @import 'foundation-icons';
+
 
 
 #content{
@@ -28,17 +30,19 @@
 	#col1{
 		width: 20%;
 		float: left;
+		
 	}
 
 	#col2{
 		width: 65%;
 		float: left;
 		#col2row1{
-
-			height: 90%;
+			height: 90px;
+			border-bottom: 1px solid;
 			#secol1{
 				float: left;
 				width: 90%
+
 			}
 		}
 	}
@@ -46,6 +50,7 @@
 		width: 15%;
 		float: left;
 		text-align: right;
+		border-left: 1px solid;
 
 		
 		ul li{
@@ -79,9 +84,17 @@
 	color: black;
 }
 
+.button{
+	background-color: #0079a3;
+}
 
+.tab-bar{
+	background: #0079a3;
+}
 
-
+a{
+	text-decoration: none;
+}
 
 
 
