@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @location.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @location.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @location.longitude %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
+
+<div class="row">
+    <%= link_to restaurants_path do %>
+      <i class="fi-plus"></i>
+    <% end %>
+  </div>
+<a href="#" data-reveal-id="myModal">Advance Search</a>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+ 
+
+
+
+  
+  <div id="content" class="row">
+    <div id="col1" class="column">
+      <%= link_to(image_tag @lunch_special.avatar.url(:thumb), class: "image")%>
+    </div>
+    <div id="col2" class="column">
+      <div id="col2row1" class="row">
+        <div id="secol1">
+          <h5><%= @lunch_special.title %></h5> 
+          <%= @lunch_special.description %>  
+        </div>
+        <div id="secol2">
+          Cal <%= @lunch_special.calories %> <br>
+        </div> 
+      </div>
+      
+      <div id="col2row2">
+      <%= link_to @lunch_special.restaurant.name, restaurant_path(lunch_special.restaurant) %>
+         <%= lunch_special.restaurant.address %>
+         <%= lunch_special.restaurant.state %>
+      </div>
+            
+    </div>
+    <div id="col3" class="column">
+      <div id="pricerow">
+        <h3>$<%= lunch_special.price %></h3>
+      </div>
+        <div id="votesrow">
+          <ul class="votes">
+          <li><%= link_to like_lunch_special_path(lunch_special), method: :put do %>
+            <i class="fi-like"></i>
+           
+          <%= lunch_special.get_upvotes.size %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to dislike_lunch_special_path(lunch_special), method: :put do %>
+            <i class="fi-dislike"></i>
+            
+             <%= lunch_special.get_downvotes.size %>
+            <% end %>
+          </li>
+        </ul>
+        </div>
+     <%= link_to "show", lunch_special %>   
+    </div>
+  </div> 
+	
+ </div>
+
+</div>
+
