@@ -36,7 +36,7 @@ gem 'activeadmin'
 gem 'has_scope'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
-gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'ransack'
 
 
 
