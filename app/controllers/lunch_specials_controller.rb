@@ -5,7 +5,8 @@ class LunchSpecialsController < InheritedResources::Base
 
 	def index
 		@location = Location.last
-		@lunch_specials = LunchSpecial.near([@location.latitude, @location.longitude], 5)
+		session[:address] = @location.address
+		@lunch_specials = LunchSpecial.near(session[:address], 5)
 		@q = @lunch_specials.ransack(params[:q])
   		@lunch_special = @q.result(distinct: true)
   		@q.build_condition

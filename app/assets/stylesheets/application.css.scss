@@ -19,9 +19,15 @@
 // @import "foundation_and_overrides";
 
 @import 'foundation-icons';
+body{
+	background-color: #e0e0e0;
+}
 
-
+/*LUNCH SPECIAL INDEX*/
 #row1{
+
+
+	width: 100%;
 
 	.fi-plus{
 	  float: right;
@@ -29,14 +35,15 @@
 	  padding:10px;
 	}
 
-	.advsearch{
+}
+
+.advsearch{
 		float: left;
 		font-size: 20px;
 		text-decoration: none;
 		padding: 20px;
-	}
 
-}
+	}
 
 .field{
 	text-decoration: none;
@@ -56,7 +63,6 @@
   width: 100%;
   border: 1px solid;
   margin: 1% auto;
-  background: #f0f0f0;
 
   	a{
   		text-decoration: none;
@@ -148,7 +154,85 @@
 .tab-bar{
 	background: #0079a3;
 }
+/*END OF LUNCH SPECIAL INDEX*/
+/*RESTAURANT SHOW*/
+.row{
+	
+	margin: 1%;
+}
 
+#showresrow0{
+	width: 100%;
+
+	#showrow0col1{
+
+		text-align: left;
+
+	.advsearch{
+		text-decoration: none;
+		font-size: 20px;
+	}
+
+}
+
+#showrow0col2{
+
+		text-align: right;
+
+
+	a{
+		text-decoration: none;
+		font-size: 20px;
+	}
+
+}
+}
+	
+
+#showresrow1{
+	border: 1px solid;
+	border-radius: 5px;
+	background: white;
+	padding: 2px;
+
+		#showrescol1{
+			float: left;
+			width: 50%;
+			height: 100%;
+			margin: auto 1%;
+		}
+
+		#showrescol2{
+			float: left;
+
+		}
+		#map{
+			border: 1px solid;
+			float: right;
+		}
+}
+
+#showresrow2{
+	border: 1px solid;
+	border-radius: 5px;
+	background: white;
+		
+		#showrescol1{
+			margin: 1%;
+		}
+		
+}
+
+#showresrow3{
+	border: 1px solid;
+	border-radius: 5px;
+	background: white;
+		
+		#showrescol1{
+			margin: 1%;
+		}
+	
+}
 
 
 @media screen and (max-width: 650px) {
