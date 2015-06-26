@@ -12,12 +12,12 @@ class LunchSpecialsController < InheritedResources::Base
 	end
 
 	def new
-		@lunch_special = current_user.lunch_special.build
+		@lunch_special = current_user.lunch_special.new
 	end
 
 	def create
 		@restaurant = Restaurant.find(params[:restaurant_id])
-		@lunch_special = @restaurant.lunch_specials.create(lunch_special_params)
+		@lunch_special = @restaurant.lunch_specials.build(lunch_special_params)
 	 	@lunch_special.restaurant
 	 	@lunch_special.address = @restaurant.address + " " + @restaurant.city + ", " + @restaurant.state
 	 	@lunch_special.latitude = @restaurant.latitude

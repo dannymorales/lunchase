@@ -1,10 +1,6 @@
 class Location < ActiveRecord::Base
-	reverse_geocoded_by :latitude, :longitude do |obj,results|
-  if geo = results.first
-    obj.address = geo.address
-  end
-end
-
-after_validation :reverse_geocode
+	geocoded_by :address
+	reverse_geocoded_by :latitude, :longitude
+	after_validation :geocode, :reverse_geocode
 
 end

@@ -1,14 +1,12 @@
 class RestaurantsController < InheritedResources::Base
 
 
-	def index	
-		if params[:search].present?
-			@restaurants = Restaurant.near(params[:search])
-		else
-			@restaurants = Restaurant.all
-		end
-		# @search = Restaurant.search(params[:q])
-		# @restaurants = @search.result(distint: true)
+	def index
+		@location = Location.last
+		@restaurants = Restaurant.near([@location.latitude, @location.longitude], 10)
+		@q = @restaurants.ransack(params[:q])
+  		@restaurant = @q.result(distinct: true)
+  		
 	end
 
 	def new
@@ -30,6 +28,7 @@ class RestaurantsController < InheritedResources::Base
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
+
 		@hash = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
   			marker.lat restaurant.latitude
   			marker.lng restaurant.longitude
