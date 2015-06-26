@@ -1,7 +1,7 @@
 class LocationsController < InheritedResources::Base
 
 	def new
-		@location = Location.new(location_params)
+		@location = Location.new
 	end
 
 	def create
@@ -13,9 +13,6 @@ class LocationsController < InheritedResources::Base
 		end
 	end
 
-	def show
-		
-	end
   private
 
     def location_params

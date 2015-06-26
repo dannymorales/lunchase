@@ -1,10 +1,12 @@
 
 
-  <div id="row1" class="row">
-    <%= link_to restaurants_path do %>
+  <div id="row1" 
+    <div class="column">
+      <%= link_to restaurants_path do %>
       <i class="fi-plus"></i>
-    <% end %>
-    <a class="advsearch" href="#" data-reveal-id="myModal">Advanced Search</a>
+      <% end %>
+      <a class="advsearch" href="#" data-reveal-id="myModal">Advanced Search</a>`
+    </div>
   </div>
 
 <!-- MODAL STARTS HERE -->
@@ -29,8 +31,7 @@
   </div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
+
 <!-- MODAL ENDS HERE -->
  
 <% @lunch_special.each do |lunch_special| %>
@@ -45,7 +46,7 @@
       
     </div>
     <div id="col2" class="column">
-      <div id="col2row1" class="row">
+      <div id="col2row1">
         <div id="secol1">
           <h5><%= link_to lunch_special.title, lunch_special %></h5> 
           <%= lunch_special.description %>  
@@ -61,7 +62,9 @@
           <%= lunch_special.restaurant.address %>
           <%= lunch_special.restaurant.state %>
         </div>
-       
+        <div id="thirdcol2">
+         <%= lunch_special.distance.round(2) %> miles
+        </div>
         
       </div>
             

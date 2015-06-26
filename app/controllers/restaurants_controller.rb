@@ -1,5 +1,7 @@
 class RestaurantsController < InheritedResources::Base
 
+	before_action :authenticate_user!, except: [:index, :show]
+
 
 	def index
 		@location = Location.last
@@ -10,11 +12,11 @@ class RestaurantsController < InheritedResources::Base
 	end
 
 	def new
-		@restaurant = Restaurant.new
+		@restaurant = current_user.restaurants.build
 	end
 
 	def create
-		@restaurant = Restaurant.new(restaurant_params)
+		@restaurant = current_user.restaurants.build(restaurant_params)
 		respond_to do |format|
 			if @restaurant.save
 				format.html {redirect_to @restaurant, notice: "A new restaurant was created"}

@@ -1,38 +1,68 @@
-<div id="content">
+<!-- MODAL TO ADD LUNCH SPECIAL TO THIS RESTAURANT -->
+
+<div id="showresrow0" class="row">
+    <div id="showrow0col1">
+      <a class="advsearch" href="#" data-reveal-id="myModal">Add Lunch Special</a>
+    </div>
+    <div id="showrow0col2" >
+      <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+      <%= link_to 'Back', lunch_specials_path %>
+    </div>
+  </div>
+<div>
+
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <div id='advance_search'>
+    <p>Add lunch special</p>
+    <%= render 'lunch_specials/form' %>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+
+</div>
+<!-- END OF MODAL -->
+
 <p id="notice"><%= notice %></p>
+
+<!-- FIRST ROW STARTS HERE -->
   <div id="showresrow1" class="row" >
     <div id="showrescol1">
-        Restaurant info goes here
+     <h5> <%= @restaurant.name  %> </h5>
+     <p> <%= @restaurant.address %> </p>
+     <p> <%= @restaurant.city %> <%= @restaurant.state %> <%= @restaurant.zip_code %></p>
+     <p><%= @restaurant.telephone %></p>
+     <p><%= @restaurant.webpage %></p>
     </div>
-    
+    <div id="showrescol2" >
+        <div style='width: 300px;'>
+          <div id="map" style='width: 300px; height: 200px;'></div>
+        </div>
+    </div>
   </div>
-  
-  
+   
+  <!-- FIRST ROW ENDS HERE -->
+  <!-- SECOND ROW STARTS HERE -->
+  <div id="showresrow2" class="row" >
+    <div id="showrescol1">
+       <h5> Specials offered by this restaurant</h5>
+          This restaurant has <%= pluralize(@restaurant.lunch_specials.count, "lunch special") %> 
+          <%= render partial: @restaurant.lunch_specials %>
+    </div>
+  </div>
+  <!-- SECOND ROW ENDS HERE -->
+  <!-- THIRD ROW STARTS HERE -->
+  <div id="showresrow3" class="row" >
+    <div id="showrescol1">
+       <h5> Other restaurants with specials near this restaurant</h5>
+        <% for restaurant in @restaurant.nearbys(4) %>
+        <ul>
+          <li>
+            <%= link_to restaurant.name, restaurant %> (<%= restaurant.distance.round(2) %> miles)
+          </li>
+        </ul>
+        <% end %>
+    </div>
 
-
-
-<div style='width: 400px;'>
-  <div id="map" style='width: 400px; height: 200px;'></div>
-</div>
-
-<h3>other restaurants</h3>
-<% for restaurant in @restaurant.nearbys(4) %>
-  <%= link_to restaurant.address, restaurant %> (<%= restaurant.distance.round(2) %> miles)
-  <% end %>
-
-
-<div id="lunchspecials" >
-
-  <p>Add lunch special</p>
-  <%= render 'lunch_specials/form' %>
-
-  This restaurant has <%= pluralize(@restaurant.lunch_specials.count, "lunch special") %> 
-  <%= render partial: @restaurant.lunch_specials %>
-
-</div>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
 </div>
 
 <script>
