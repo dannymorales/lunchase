@@ -10,7 +10,7 @@
 <!-- MODAL STARTS HERE -->
 <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <div id='advance_search'>
-    <%= search_form_for @search do |f| %>
+    <%= search_form_for @q do |f| %>
     <ul>
       <li>
         <%= f.condition_fields do |c| %>
@@ -29,9 +29,11 @@
   </div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
 <!-- MODAL ENDS HERE -->
  
-<% @lunch_specials.each do |lunch_special| %>
+<% @lunch_special.each do |lunch_special| %>
   
   <div id="content" class="row">
     <div id="col1" class="column">
@@ -59,9 +61,7 @@
           <%= lunch_special.restaurant.address %>
           <%= lunch_special.restaurant.state %>
         </div>
-        <div id="thirdcol2" >
-         <%= lunch_special.distance.round(2) %> miles
-        </div>
+       
         
       </div>
             
