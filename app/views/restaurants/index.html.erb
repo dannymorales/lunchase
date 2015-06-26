@@ -1,44 +1,58 @@
 <div>
-<%= form_tag restaurants_path, method: :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Find specials", :disable_with => 'Finding...' %>
-  </p>
-<% end %>
+  <div>
+    <a class="advsearch" href="#" data-reveal-id="myModal">Select Restaurant</a>
+  </div>
+
+  <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <%= search_form_for @q do |f|%>
+      <%= f.label :name_or_address_or_telephone_or_webpage_cont, "Select restaurant" %>
+      <%= f.search_field :name_or_address_or_telephone_or_webpage_cont, placeholder: 'enter name, address, telephone number or website' %>
+      <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+    <% end %>
+  </div>
+
+  <% if @q.result.empty? %>
+
+    <h4>No restaurant was found, please click  <%= link_to 'HERE', new_restaurant_path %> to add new</h4> 
+  <% else %>
+
+   <% @restaurant.each do |restaurant| %>
+
+    <div id="content" class="row">
+     
+
+      <div id="rescol1" class="column">
+        <div id="rescol1row1">
+         <h4> <%= link_to restaurant.name, restaurant %></h4>
+        </div>
+
+        <div id="rescol1row2">
+          <%= restaurant.address %>
+          <%= restaurant.city %>
+          <%= restaurant.state %>
+        </div>
+        
+      </div>
+      <div id="rescol2" class="column">
+        <div id="rescol2row1">
+         <h4><%= restaurant.telephone %> </h4>
+        </div>
+
+        <div id="rescol2row2">
+         <%= restaurant.webpage %>
+        </div>
+        
+      </div>
+    </div> 
+  <% end %>
+  <% end %>
 </div>
 
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip code</th>
-      <th>Telephone</th>
-      <th>Webpage</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% for restaurant in @restaurants %>
-      <tr>
-        <td><%= link_to restaurant.name, restaurant %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.city %></td>
-        <td><%= restaurant.state %></td>
-        <td><%= restaurant.zip_code %></td>
-        <td><%= restaurant.telephone %></td>
-        <td><%= restaurant.webpage %></td>
-        <td><%= link_to 'Show ', restaurant %></td>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
