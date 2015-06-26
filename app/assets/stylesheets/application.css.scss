@@ -21,11 +21,46 @@
 @import 'foundation-icons';
 
 
+#row1{
+
+	.fi-plus{
+	  float: right;
+	  font-size: 40px;
+	  padding:10px;
+	}
+
+	.advsearch{
+		float: left;
+		font-size: 20px;
+		text-decoration: none;
+		padding: 20px;
+	}
+
+}
+
+.field{
+	text-decoration: none;
+
+	li{
+		margin: 5px;
+		width: 70%;
+	}
+	a{
+		text-decoration: none;
+		font-size: 20px;
+	}
+
+}
 
 #content{
   width: 100%;
   border: 1px solid;
   margin: 1% auto;
+  background: #f0f0f0;
+
+  	a{
+  		text-decoration: none;
+  	}
 
 	#col1{
 		width: 20%;
@@ -36,22 +71,48 @@
 	#col2{
 		width: 65%;
 		float: left;
+		border-left: 1px solid;
+		border-right: 1px solid;
+
 		#col2row1{
-			height: 90px;
+			width: 100%;
+			height: 80px;
 			border-bottom: 1px solid;
+			
 			#secol1{
 				float: left;
-				width: 90%
+				width: 90%;
+				margin-left: 10px;
+			}
+		}
+
+		#col2row2{
+			width: 100%;
+			height: 10px;
+			#thirdcol1{
+				width: 70%;
+				float: left;
+				marging-left: 2px;
+				
+			}
+			#thirdcol2{
+				width: 30%;
+				float: left;
+				text-align: right;
 
 			}
+
 		}
 	}
 	#col3{
 		width: 15%;
 		float: left;
 		text-align: right;
-		border-left: 1px solid;
 
+		#pricerow{
+			text-align: right;
+			margin:0 0 40px 0;
+		}
 		
 		ul li{
 			display: inline;
@@ -59,30 +120,26 @@
 			font-size: 20px;
 			margin: 0 5px;
 			position: static;
-		}		
+
+			
+			
+			.votes li{
+				display: inline;
+				list-style-type: none;
+				font-size: 40px;
+				margin: 10px 20px;
+
+			}
+			.fi-like{
+				width: 5px;
+				color: black;
+			}
+		}	
+
 	}
 }
 
-.fi-plus{
-  float: right;
-  font-size: 40px;
-  padding:10px;
-}
-.price{
-	float: right;
-}
 
-.votes li{
-
-	display: inline;
-	list-style-type: none;
-	font-size: 40px;
-	margin: 0 20px;
-}
-.fi-like{
-	width: 5px;
-	color: black;
-}
 
 .button{
 	background-color: #0079a3;
@@ -92,11 +149,83 @@
 	background: #0079a3;
 }
 
-a{
-	text-decoration: none;
+
+
+@media screen and (max-width: 650px) {
+#content{
+  width: 90%;
+  margin: 1% auto;
+  background: #f0f0f0;
+
+  	a{
+  		text-decoration: none;
+  	}
+
+	#col1{
+		display: none;
+		
+	}
+
+	#col2{
+		width: 75%;
+		float: left;
+		#col2row1{
+			width: 100%;
+			height: 80px;
+			
+			#secol1{
+				float: left;
+				width: 80%;
+				margin-right: 10px;
+			}
+		}
+
+		#col2row2{
+			width: 100%;
+			height: 10px;
+			#thirdcol1{
+				width: 70%;
+				float: left;
+				
+			}
+			#thirdcol2{
+				width: 30%;
+				float: left;
+				text-align: right;
+			}
+		}
+	}
+	#col3{
+		width: 20%;
+		float: left;
+
+		
+		#pricerow{
+			height: 90px;
+			width: 70px;
+			text-align: center;
+			margin: auto;
+		}
+		#votesrow{
+			width: 80px;
+			text-align: left;
+			position: fixed;
+			
+			li{
+				
+				display: inline;
+				font-size: 15px;
+				margin-right: auto;
+				padding: 0;
+				
+			}
+			
+		}
+		}	
+
+	}
+
+
 }
-
-
-
 
 

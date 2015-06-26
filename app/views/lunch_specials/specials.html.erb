@@ -1,51 +1,37 @@
-
-
-  <div id="row1" class="row">
+<% for restaurant in @restaurant.nearbys(4) %>
+  <div class="row">
     <%= link_to restaurants_path do %>
       <i class="fi-plus"></i>
     <% end %>
-    <a class="advsearch" href="#" data-reveal-id="myModal">Advanced Search</a>
   </div>
+<a href="#" data-reveal-id="myModal">Advance Search</a>
 
-<!-- MODAL STARTS HERE -->
 <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <div id='advance_search'>
-    <%= search_form_for @search do |f| %>
-    <ul>
-      <li>
-        <%= f.condition_fields do |c| %>
-      <%= render "condition_fields", f: c %>
-      <% end %>
-      </li>
-    </ul>
-    <div>
-      <%= link_to_add_fields "Select other filter", f, :condition %>
-    </div>
-    <div>
-      <%= f.submit "Search", class: "button" %> 
-    <% end %>
-    </div>
-    
-  </div>
+<%= search_form_for @search do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <%= link_to_add_fields "Add conditions", f, :condition %>
+  <%= f.submit "Search", class: "button" %> 
+<% end %>
+</div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
-<!-- MODAL ENDS HERE -->
+
+
+
  
-<% @lunch_specials.each do |lunch_special| %>
+<% for lunch_special in @lunch_specials %>
   
   <div id="content" class="row">
     <div id="col1" class="column">
-    <% if lunch_special.avatar.present? %>
       <%= link_to(image_tag lunch_special.avatar.url(:thumb), class: "image")%>
-    <% else %>
-      <p>No image for this special</p>
-    <% end %>
-      
     </div>
     <div id="col2" class="column">
       <div id="col2row1" class="row">
         <div id="secol1">
-          <h5><%= link_to lunch_special.title, lunch_special %></h5> 
+          <h5><%= lunch_special.title %></h5> 
           <%= lunch_special.description %>  
         </div>
         <div id="secol2">
@@ -54,15 +40,10 @@
       </div>
       
       <div id="col2row2">
-        <div id="thirdcol1">
-         <%= link_to lunch_special.restaurant.name, restaurant_path(lunch_special.restaurant) %> | 
-          <%= lunch_special.restaurant.address %>
-          <%= lunch_special.restaurant.state %>
-        </div>
-        <div id="thirdcol2" >
-         <%= lunch_special.distance.round(2) %> miles
-        </div>
-        
+      <%= link_to lunch_special.restaurant.name, restaurant_path(lunch_special.restaurant) %>
+         <%= lunch_special.restaurant.address %>
+         <%= lunch_special.restaurant.state %>
+         <%= restaurant.distance.round(2) %>
       </div>
             
     </div>
@@ -87,6 +68,7 @@
           </li>
         </ul>
         </div>
+     <%= link_to "show", lunch_special %>   
     </div>
   </div> 
 
@@ -95,4 +77,6 @@
 
 </div>
 
+<% end %>
 
+<%= link_to restaurant.address, restaurant %> (<%= restaurant.distance.round(2) %> miles)

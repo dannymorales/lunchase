@@ -449,7 +449,7 @@ $include-html-button-classes: $include-html-classes !default;
 
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
-$button-font-color: #0079a3;
+$button-font-color: white;
 $button-font-color-alt: #0079a3;
 // $button-font-tny: rem-calc(11);
 // $button-font-sml: rem-calc(13);
@@ -464,7 +464,7 @@ $button-font-color-alt: #0079a3;
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
-// $button-bg-color: #0079a3;
+$button-bg-color: #0079a3;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);

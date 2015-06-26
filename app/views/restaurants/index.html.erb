@@ -1,16 +1,13 @@
-
-
-
-<%= search_form_for @search do |f|%>
-  <%= f.label :name_or_address_cont, "Select restaurant" %>
-  <%= f.search_field :name_or_address_cont %>
-  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<div>
+<%= form_tag restaurants_path, method: :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Find specials", :disable_with => 'Finding...' %>
+  </p>
 <% end %>
+</div>
 
-<% if @search.result.empty? %>
 
-<h4>No restaurant was found, please click  <%= link_to 'HERE', new_restaurant_path %> to add new</h4> 
-<% else %>
 
 <table>
   <thead>
@@ -27,7 +24,7 @@
   </thead>
 
   <tbody>
-    <% @restaurants.each do |restaurant| %>
+    <% for restaurant in @restaurants %>
       <tr>
         <td><%= link_to restaurant.name, restaurant %></td>
         <td><%= restaurant.address %></td>
@@ -45,4 +42,3 @@
 
 
 
-<% end %>

@@ -2,8 +2,13 @@ class RestaurantsController < InheritedResources::Base
 
 
 	def index	
-		@search = Restaurant.search(params[:q])
-		@restaurants = @search.result(distint: true)
+		if params[:search].present?
+			@restaurants = Restaurant.near(params[:search])
+		else
+			@restaurants = Restaurant.all
+		end
+		# @search = Restaurant.search(params[:q])
+		# @restaurants = @search.result(distint: true)
 	end
 
 	def new

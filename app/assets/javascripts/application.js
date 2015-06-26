@@ -18,5 +18,8 @@
 //= require_tree .
 
 
-
 $(function(){ $(document).foundation(); });
+var x = document.getElementById("demo");
+
+
+

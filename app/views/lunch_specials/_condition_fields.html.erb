@@ -1,11 +1,18 @@
-  <div class="field">
+<div class="field">
+  <ul>
+    <li>
       <%= f.attribute_fields do |a| %>
-        <%= a.attribute_select %>
+      <%= a.attribute_select %>
       <% end %>
+    </li>
+    <li>
       <%= f.predicate_select only: %i(cont not_cont lteq)%>
+    </li>
+    <li>
       <%= f.value_fields do |v| %>
-        <%= v.text_field :value %>
+      <%= v.text_field :value %>
       <% end %>
+    </li>
+  </ul> 
   <%= link_to 'remove', '#', class: 'remove_fields' %>
-    
-  </div>
+</div>
