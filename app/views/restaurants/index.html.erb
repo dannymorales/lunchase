@@ -1,5 +1,5 @@
-<div>
-  <div>
+
+  <div class="row">
     <a class="advsearch" href="#" data-reveal-id="myModal">Select Restaurant</a>
   </div>
 
@@ -15,6 +15,7 @@
 
     <h4>No restaurant was found, please click  <%= link_to 'HERE', new_restaurant_path %> to add new</h4> 
   <% else %>
+
 
    <% @restaurant.each do |restaurant| %>
 
@@ -46,7 +47,7 @@
     </div> 
   <% end %>
   <% end %>
-</div>
+
 
 <script>
   handler = Gmaps.build('Google');
@@ -54,5 +55,6 @@
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
+  handler.getMap().setZoom(15)
 });
 </script>

@@ -23,6 +23,21 @@ body{
 	background-color: #e0e0e0;
 }
 
+.off-canvas-list{
+	a{
+		text-decoration: none;
+	}
+}
+
+#new-container{
+
+	margin: 10%;
+	
+}
+
+#newsearchfield{
+	width: 300px;
+}
 /*LUNCH SPECIAL INDEX*/
 #row1{
 
@@ -32,7 +47,9 @@ body{
 	.fi-plus{
 	  float: right;
 	  font-size: 40px;
-	  padding:10px;
+	  margin: 10px auto;
+	  padding: 5%;
+	  
 	}
 
 }
@@ -162,7 +179,7 @@ body{
 }
 
 #showresrow0{
-	width: 100%;
+	width: 90%;
 
 	#showrow0col1{
 
@@ -194,6 +211,7 @@ body{
 	border-radius: 5px;
 	background: white;
 	padding: 2px;
+	width: 95%;
 
 		#showrescol1{
 			float: left;
@@ -216,6 +234,7 @@ body{
 	border: 1px solid;
 	border-radius: 5px;
 	background: white;
+	width: 95%;
 		
 		#showrescol1{
 			margin: 1%;
@@ -227,6 +246,7 @@ body{
 	border: 1px solid;
 	border-radius: 5px;
 	background: white;
+	width: 95%;
 		
 		#showrescol1{
 			margin: 1%;
@@ -234,6 +254,54 @@ body{
 	
 }
 
+#spe1row1{
+		height: 160px;
+	#col1{
+		float: left;
+		width: 80%;
+		
+		ul{
+			li{
+				list-style: none;
+				display: inline-block;
+				font-size: 20px;
+
+				a{
+					text-decoration: none;
+				}
+			}
+		}
+	
+	}
+
+	#col2{
+		
+	}
+}
+#spe1row2{
+	clear: both;
+}
+
+#lunchforrest{
+
+	#col1{
+		float: left;
+		width: 70%;
+		ul{
+			li{
+				list-style: none;
+				display: inline-block;
+				font-size: 16px;
+				a{
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	#col2{
+		float: left;
+	}
+}
 
 @media screen and (max-width: 650px) {
 #content{

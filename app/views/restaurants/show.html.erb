@@ -2,7 +2,11 @@
 
 <div id="showresrow0" class="row">
     <div id="showrow0col1">
+    <% if user_signed_in? %>
       <a class="advsearch" href="#" data-reveal-id="myModal">Add Lunch Special</a>
+    <% else %>
+      <%= link_to 'sign in to add new special', user_session_path, class: "advsearch" %>
+    <% end %>
     </div>
     <div id="showrow0col2" >
       <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
@@ -22,7 +26,6 @@
 </div>
 <!-- END OF MODAL -->
 
-<p id="notice"><%= notice %></p>
 
 <!-- FIRST ROW STARTS HERE -->
   <div id="showresrow1" class="row" >
@@ -35,7 +38,7 @@
     </div>
     <div id="showrescol2" >
         <div style='width: 300px;'>
-          <div id="map" style='width: 300px; height: 200px;'></div>
+          <div id="map" style='width: 400px; height: 300px;'></div>
         </div>
     </div>
   </div>
@@ -71,6 +74,7 @@
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
+  handler.getMap().setZoom(15)
 });
 </script>
 

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers:{registration: "my_registrations", omniauth_callbacks: "users/omniauth_callbacks"}
   
-  root 'lunch_specials#index'
+  root 'locations#new'
 
 
 

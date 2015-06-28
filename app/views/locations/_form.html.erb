@@ -1,4 +1,4 @@
-<button onclick="showlocation()">your location</button>
+<button onclick="showlocation()">Search Lunch Specials Near You</button>
 <%= form_for(@location) do |f| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
@@ -12,22 +12,21 @@
     </div>
   <% end %>
 
+  <h5>Or....</h5>
+
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+
+    <%= f.text_field :address, placeholder: 'Enter an address, city or zip code to search', id: 'newsearchfield' %>
   </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude, id: 'latitude' %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-   <%= f.text_field :longitude, id: 'longitude' %>
-  </div>
+
+    <%= f.text_field :latitude, type: 'hidden', id: 'latitude' %>
+   <%= f.text_field :longitude, type: 'hidden', id: 'longitude' %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit value="search", id: 'submitbtn'%>
   </div>
 <% end %>
+
 <script>
  
 function showlocation(){
@@ -36,5 +35,6 @@ function showlocation(){
 function callback(position){
     document.getElementById('latitude').value=position.coords.latitude;
     document.getElementById('longitude').value=position.coords.longitude;
+    document.getElementById("submitbtn").click();
 }
 </SCRIPT>

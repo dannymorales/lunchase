@@ -6,14 +6,15 @@ class LunchSpecialsController < InheritedResources::Base
 	def index
 		@location = Location.last
 		session[:address] = @location.address
-		@lunch_specials = LunchSpecial.near(session[:address], 5)
+		@lunch_specials = LunchSpecial.near(@location.address, 2)
 		@q = @lunch_specials.ransack(params[:q])
+		@q.sorts = 'price asc'
   		@lunch_special = @q.result(distinct: true)
   		@q.build_condition
 	end
 
 	def new
-		@lunch_special = current_user.lunch_special.new
+			@lunch_special = current_user.lunch_special.new
 	end
 
 	def create
