@@ -17,7 +17,6 @@
   </head>
 
   <body>
-
   <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
     <nav class="tab-bar" data-options="sticky_on: large">
@@ -28,14 +27,16 @@
       <section class="middle tab-bar-section">
         <h1 class="title">Lunchase</h1>
       </section>
-
     </nav>
 
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>Menu</label></li>
-        <li><%= link_to "home", lunch_specials_path %></li>
+        <li><%= link_to "select new location", new_location_path %></li></li>
+        <li><%= link_to "Lunch Specials", lunch_specials_path %></li>
+        <li> <a  href="#" data-reveal-id="myModal">Advanced Search</a></li>
         <% if user_signed_in? %>
+          <li><%= link_to 'Add new special', restaurants_path %></li>
         	<li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
         <% else %>
         	<li><%= link_to "login", new_user_session_path %></li>
@@ -43,7 +44,7 @@
         
       </ul>
     </aside>
-
+    <p id="notice"><%= notice %></p>
     <section class="main-section">
       <%= yield %>
     </section>

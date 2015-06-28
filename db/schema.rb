@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625061133) do
+ActiveRecord::Schema.define(version: 20150628144354) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20150625061133) do
     t.string   "state"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "taxes"
   end
 
   create_table "relationships", force: :cascade do |t|

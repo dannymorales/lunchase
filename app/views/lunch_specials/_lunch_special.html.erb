@@ -2,9 +2,25 @@
 	<div id="col1">
 		<h5><%= lunch_special.title %></h5>
 		<p><%= lunch_special.description %></p>
+		<ul class="votes">
+          <li><%= link_to like_lunch_special_path(lunch_special), method: :put do %>
+            <i class="fi-like"></i>
+           
+          <%= lunch_special.get_upvotes.size %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to dislike_lunch_special_path(lunch_special), method: :put do %>
+            <i class="fi-dislike"></i>
+            
+             <%= lunch_special.get_downvotes.size %>
+            <% end %>
+          </li>
+        </ul>
 	</div>
 	<div id="col2">
 		<p><%= lunch_special.price %></p>
+		 <p>Cal <%= lunch_special.calories %></p>
 	</div>
 	
 </div>

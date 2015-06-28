@@ -1,17 +1,10 @@
 
 
-  <div id="row1" 
-    <div class="column">
-      <%= link_to restaurants_path do %>
-      <i class="fi-plus"></i>
-      <% end %>
-      <a class="advsearch" href="#" data-reveal-id="myModal">Advanced Search</a>`
-    </div>
-  </div>
+ 
 
 <!-- MODAL STARTS HERE -->
 <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <div id='advance_search'>
+  <div id='advance_search', class="field">
     <%= search_form_for @q do |f| %>
     <ul>
       <li>
@@ -21,7 +14,7 @@
       </li>
     </ul>
     <div>
-      <%= link_to_add_fields "Select other filter", f, :condition %>
+      <%= link_to_add_fields "Add more filters", f, :condition %>
     </div>
     <div>
       <%= f.submit "Search", class: "button" %> 
@@ -37,6 +30,8 @@
 <% @lunch_special.each do |lunch_special| %>
   
   <div id="content" class="row">
+
+
     <div id="col1" class="column">
     <% if lunch_special.avatar.present? %>
       <%= link_to(image_tag lunch_special.avatar.url(:thumb), class: "image")%>
