@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div id="showresrow1" class="row">
   <div id="showrescol1">
     <div id="spe1row1">
@@ -43,9 +41,9 @@
   </div>
 </div>
 <% if @lunch_special.avatar.present?%>
+
 <div id="showresrow2" class="row">
-  
-    <%= image_tag @lunch_special.avatar.url(:large)%>
+    <%= image_tag @lunch_special.avatar.url(:medium)%>
   <% end %>
 </div>
 

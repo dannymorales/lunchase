@@ -1,4 +1,5 @@
-<%= form_for [@restaurant, LunchSpecial.new] do |f| %>
+<%= puts "The url is #{@url.inspect}" %>
+<%= form_for @url do |f| %>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
