@@ -1,6 +1,7 @@
 class Restaurant < ActiveRecord::Base
+	belongs_to :user
 	has_many :lunch_specials
-	validates :name, presence: true
+	# validates :name, presence: true
 	# validates :address, presence: true
 	validates :address, uniqueness: true
 	# validates :state, presence: true

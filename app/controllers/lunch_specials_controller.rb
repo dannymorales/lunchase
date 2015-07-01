@@ -14,7 +14,9 @@ class LunchSpecialsController < InheritedResources::Base
 	end
 
 	def new
-			@lunch_special = current_user.lunch_special.new
+		@lunch_special = current_user.lunch_special.new
+		@restaurant = Restaurant.find(params[:id])
+		@url = [@restaurant, @lunch_special]
 	end
 
 	def create
@@ -40,8 +42,7 @@ class LunchSpecialsController < InheritedResources::Base
 	end
 
 	def edit
-		@lunch_special = LunchSpecial.find(params[:id])
-		@lunch_special.restaurant
+		@url = LunchSpecial.find(params[:id])
 	end
 
 	def update
