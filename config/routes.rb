@@ -11,8 +11,7 @@ Rails.application.routes.draw do
       resources :ingredients
    	 end
   end
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+ 
   devise_for :users, controllers:{registration: "my_registrations", omniauth_callbacks: "users/omniauth_callbacks"}
   
   root 'locations#new'

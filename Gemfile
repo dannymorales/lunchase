@@ -64,9 +64,9 @@ group :development, :test do
 	gem 'factory_girl', '~> 4.5.0'
 end
 
-group :production  do
-	gem 'pg'
-end
+# group :production  do
+# 	gem 'pg'
+# end
 
 
 
