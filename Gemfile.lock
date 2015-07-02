@@ -170,7 +170,6 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
-    pg (0.18.2)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     rack (1.6.1)
@@ -285,7 +284,6 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-twitter
   paperclip (~> 4.2.2)
-  pg
   rails (= 4.2.1)
   ransack
   rspec-rails (~> 3.3.1)
