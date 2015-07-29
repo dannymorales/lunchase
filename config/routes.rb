@@ -14,7 +14,7 @@ Rails.application.routes.draw do
  
   devise_for :users, controllers:{registration: "my_registrations", omniauth_callbacks: "users/omniauth_callbacks"}
   
-  root 'locations#new'
+  root to: 'locations#index'
 
 
 
