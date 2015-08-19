@@ -22,7 +22,14 @@
     <%= render 'lunch_specials/form' %>
     <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   </div>
-
+</div>
+<a data-reveal-id="Modal">Directions</a>
+<div id="Modal" class="reveal-modal" data-reveal >
+ 
+          <div id="directions" style='width: 400px; height: 300px;'></div>
+  
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
 </div>
 <!-- END OF MODAL -->
 
@@ -33,15 +40,22 @@
      <h5> <%= @restaurant.name  %> </h5>
      <p> <%= @restaurant.address %> </p>
      <p> <%= @restaurant.city %> <%= @restaurant.state %> <%= @restaurant.zip_code %></p>
+     <h2>REMOVE THIS</h2>
+     <p id="end"> <%= "#{@restaurant.latitude}" + ", " + "#{@restaurant.longitude}" %> </p>
+     <p id="start"> <%= session[:address] %></p>
+     
      <p><%= @restaurant.telephone %></p>
      <p><%= @restaurant.webpage %></p>
+     
     </div>
     <div id="showrescol2" >
         <div style='width: 300px;'>
           <div id="map" style='width: 400px; height: 300px;'></div>
         </div>
+
     </div>
   </div>
+
    
   <!-- FIRST ROW ENDS HERE -->
   <!-- SECOND ROW STARTS HERE -->
@@ -65,17 +79,48 @@
         </ul>
         <% end %>
     </div>
+  
+  </div>
 
+  </div>
 </div>
-
+  
 <script>
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-  handler.getMap().setZoom(15)
+  handler2 = Gmaps.build('Google');
+  handler2.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler2.addMarkers(<%=raw @hash.to_json %>);
+  handler2.bounds.extendWith(markers);
+  handler2.fitMapToBounds();
+  handler2.getMap().setZoom(15)
 });
+
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsService = new google.maps.DirectionsService();
+function calcRoute() {
+  var origin = new google.maps.LatLng(<%= session[:address] %>);
+  var destination = new google.maps.LatLng(<%= @restaurant.latitude %>, <%= @restaurant.longitude %>);
+  var request = {
+      origin:      origin,
+      destination: destination,
+      travelMode:  google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+calcRoute();
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'directions'}}, function(){
+  
+  directionsDisplay.setMap(handler.getMap());
+  directionsDisplay.setPanel(document.getElementById('directions-panel'));
+});
+
+
+
+
 </script>
 
 

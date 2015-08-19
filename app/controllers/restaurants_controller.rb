@@ -35,6 +35,8 @@ class RestaurantsController < InheritedResources::Base
   			marker.lat restaurant.latitude
   			marker.lng restaurant.longitude
 		end
+		@location = Location.last
+		session[:address] = "#{@location.latitude},  #{@location.longitude}"
 	end
 
 	def edit
