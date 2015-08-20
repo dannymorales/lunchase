@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  
   resources :locations
-  resources :lunch_specials
+  resources :lunch_specials do
+    resources :pictures
+  end
   resources :restaurants, shallow: true do  
     resources :lunch_specials, except: :index do
     	member do

@@ -16,4 +16,6 @@ class Restaurant < ActiveRecord::Base
 	def full_address
 		[address, city, state].compact.join(', ')
 	end
+
+	
 end

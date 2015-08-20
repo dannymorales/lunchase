@@ -39,13 +39,19 @@
       <div id="map" style='width: 400px; height: 200px;'></div>
     </div>
   </div>
-</div>
-<% if @lunch_special.avatar.present?%>
+<!-- PICTURES -->
 
-<div id="showresrow2" class="row">
-    <%= image_tag @lunch_special.avatar.url(:medium)%>
+  <%= form_for(@pictures), :html => {:multipart => true} do |f| %>
+     <%= f.error_messages %>
+
+      <%= f.hidden_field :lunch_special_id %> 
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.file_field :image %>
+      <%= f.submit "Submit", :disable_with => 'Submiting...' %>
   <% end %>
-</div>
+    
+<!-- PICTURES END -->
 
 
 <% if user_signed_in? %>

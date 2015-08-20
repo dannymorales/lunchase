@@ -39,6 +39,7 @@ class LunchSpecialsController < InheritedResources::Base
   			marker.lat restaurant.latitude
   			marker.lng restaurant.longitude
   		end
+  		@location = session[:address]
 	end
 
 	def edit

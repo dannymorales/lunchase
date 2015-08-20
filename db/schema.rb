@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702143432) do
+ActiveRecord::Schema.define(version: 20150818042614) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -78,6 +78,16 @@ ActiveRecord::Schema.define(version: 20150702143432) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "taxes"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "description"
+    t.string   "image"
+    t.integer  "gallery_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "lunch_special_id"
+    t.integer  "user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
