@@ -11,6 +11,7 @@ class LunchSpecialsController < InheritedResources::Base
 		@q.sorts = 'price asc'
   		@lunch_special = @q.result(distinct: true)
   		@q.build_condition
+  		@pictures = Picture.where(lunch_special_id: @lunch_special)
 	end
 
 	def new
@@ -40,6 +41,7 @@ class LunchSpecialsController < InheritedResources::Base
   			marker.lng restaurant.longitude
   		end
   		@location = session[:address]
+  		@pictures = Picture.where(lunch_special_id: @lunch_special)
 	end
 
 	def edit

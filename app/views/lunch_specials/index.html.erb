@@ -29,67 +29,69 @@
  
 <% @lunch_special.each do |lunch_special| %>
   
-  <div id="content" class="row">
-
-
-    <div id="col1" class="column">
-    <% if lunch_special.avatar.present? %>
-      <%= link_to(image_tag lunch_special.avatar.url(:thumb), class: "image")%>
-    <% else %>
-      <p>No image for this special</p>
-    <% end %>
-      
+  <div id="main_row" class="row">
+  <!-- FIRST COLUMN -->
+    <div class="small-6 large-2 columns">
+      <% if lunch_special.avatar.present? %>
+        <%= link_to(image_tag lunch_special.avatar.url(:thumb), class: "image")%>
+      <% else %>
+        <p>No image for this special</p>
+      <% end %>
     </div>
-    <div id="col2" class="column">
-      <div id="col2row1">
-        <div id="secol1">
+  <!-- SECOND COLUMN -->
+    <div class="small-9 large-8 columns">
+      <div class="row">
+        <div class="small-10 columns">
           <h5><%= link_to lunch_special.title, lunch_special %></h5> 
           <%= lunch_special.description %>  
         </div>
-        <div id="secol2">
+        <div class="small-2 columns">
           Cal <%= lunch_special.calories %> <br>
         </div> 
       </div>
       
-      <div id="col2row2">
-        <div id="thirdcol1">
+      <div class="row">
+        <div class="small-10 columns">
          <%= link_to lunch_special.restaurant.name, restaurant_path(lunch_special.restaurant) %> | 
           <%= lunch_special.restaurant.address %>
           <%= lunch_special.restaurant.state %>
         </div>
-        <div id="thirdcol2">
+        <div class="small-2 columns">
          <%= lunch_special.distance.round(2) %> miles
         </div>
         
       </div>
-            
     </div>
-    <div id="col3" class="column">
-      <div id="pricerow">
-        <h3>$<%= lunch_special.price %></h3>
+     <!-- THIRD COLUMN -->
+    <div class="small-12 large-2 columns">
+      <div id="index_price" class="row">
+        <div class="small-12 large-12 columns">
+          <h3>$<%= lunch_special.price %></h3>
+        </div>
       </div>
-        <div id="votesrow">
+      <div class="row">
+        <div class="small-12 large-12 columns">
           <ul class="votes">
-          <li><%= link_to like_lunch_special_path(lunch_special), method: :put do %>
+            <li class="small-6 large-6 columns"><%= link_to like_lunch_special_path(lunch_special), method: :put do %>
             <i class="fi-like"></i>
-           
-          <%= lunch_special.get_upvotes.size %>
+
+            <%= lunch_special.get_upvotes.size %>
             <% end %>
-          </li>
-          <li>
+            </li>
+            <li class="small-6 large-6 columns">
             <%= link_to dislike_lunch_special_path(lunch_special), method: :put do %>
             <i class="fi-dislike"></i>
-            
-             <%= lunch_special.get_downvotes.size %>
+            <%= lunch_special.get_downvotes.size %>
             <% end %>
-          </li>
-        </ul>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
   </div> 
 
 <% end %>
-  </div>
+</div>
 
 </div>
 

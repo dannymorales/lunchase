@@ -2,6 +2,7 @@
   <div id="showrescol1">
     <div id="spe1row1">
       <div id="col1">
+        <p id="lunchId"><%= @lunch_special.id %></p>
         <h4><%= @lunch_special.title %></h4> 
         <p> <%= @lunch_special.description %></p>
         <ul class="votes">
@@ -39,22 +40,20 @@
       <div id="map" style='width: 400px; height: 200px;'></div>
     </div>
   </div>
-<!-- PICTURES -->
 
-  <%= form_for(@pictures), :html => {:multipart => true} do |f| %>
-     <%= f.error_messages %>
+<% @pictures.each do |picture| %>
+      <%= image_tag picture.image.url(:medium) %>
+<% end %>
 
-      <%= f.hidden_field :lunch_special_id %> 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.file_field :image %>
-      <%= f.submit "Submit", :disable_with => 'Submiting...' %>
-  <% end %>
-    
-<!-- PICTURES END -->
-
-
+  
 <% if user_signed_in? %>
+
+  <a href="#" data-reveal-id="myModal">add picture</a> | 
+
+  <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="addPicture" aria-hidden="true" role="dialog">
+    <%= render 'pictures/form' %>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
 
   <%= link_to 'information not acurate?', edit_lunch_special_path(@lunch_special) %> |
   <% end %>
@@ -75,4 +74,5 @@
   handler.fitMapToBounds();
   handler.getMap().setZoom(15)
 });
+
 </script>

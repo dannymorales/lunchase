@@ -1,4 +1,4 @@
-<button onclick="showlocation()">Search Lunch Specials Near You</button>
+<button class="button radius" onclick="showlocation()">Search Lunch Specials Near You</button>
 <%= form_for(@location) do |f| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
@@ -23,7 +23,7 @@
    <%= f.text_field :longitude, type: 'hidden', id: 'longitude' %>
 
   <div class="actions">
-    <%= f.submit value="search", id: 'submitbtn'%>
+    <%= f.submit value="search", class: 'button small radius', id: 'submitbtn'%>
   </div>
 <% end %>
 

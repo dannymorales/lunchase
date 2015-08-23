@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  
   resources :locations
   resources :lunch_specials do
     resources :pictures

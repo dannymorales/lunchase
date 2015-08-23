@@ -19,367 +19,72 @@
 
 @import 'foundation-icons';
 
-body{
-	 background: #f0f0f0;
+#main_body{
+	background-color: #cccccc;
 }
-
 .off-canvas-list{
 	a{
 		text-decoration: none;
 	}
 }
 
-#new-container{
-
-	margin: 10%;
-	
-}
 
 #newsearchfield{
 	width: 300px;
 }
 /*LUNCH SPECIAL INDEX*/
-#row1{
 
-
-	width: 100%;
-
-	.fi-plus{
-	  float: right;
-	  font-size: 40px;
-	  margin: 10px auto;
-	  padding: 5%;
-	  
-	}
-
-}
 
 .advsearch{
-		float: left;
-		font-size: 20px;
-		text-decoration: none;
-		padding: 20px;
-
+		float: left; font-size: 20px; text-decoration: none; padding: 20px;
 	}
 
 .field{
 	text-decoration: none;
-
 	li{
-		margin: 5px;
-		width: 70%;
+		margin: 5px; width: 70%;
 	}
 	a{
 		text-decoration: none;
 		font-size: 20px;
 	}
-
 }
 
-#content{
-  width: 100%;
-  border: 1px solid;
-  margin: 1% auto;
-  background: #f0f0f0;
-  box-shadow: 2px black;
-
-  	a{
-  		text-decoration: none;
-  	}
-
-	#col1{
-		width: 20%;
-		float: left;
-		
-	}
-
-	#col2{
-		width: 65%;
-		float: left;
-		border-left: 1px solid;
-		border-right: 1px solid;
-
-		#col2row1{
-			width: 100%;
-			height: 70px;
-			border-bottom: 1px solid;
-			
-			#secol1{
-				float: left;
-				width: 90%;
-				margin-left: 10px;
-			}
+#main_row{
+	background-color: white; margin: 0 0 1% 5%;
+	.columns{
+		.votes{
+			list-style-type: none; 
+			float: right;
 		}
 
-		#col2row2{
-			width: 100%;
-			height: 10px;
-			#thirdcol1{
-				width: 70%;
-				float: left;
-				marging-left: 2px;
-				
-			}
-			#thirdcol2{
-				width: 30%;
-				float: left;
-				text-align: right;
-
-			}
-
-		}
-	}
-	#col3{
-		width: 15%;
-		float: left;
-		text-align: right;
-
-		#pricerow{
+		#index_price {
 			text-align: right;
-			margin:0 0 40px 0;
 		}
-		
-		ul li{
-			display: inline;
-			list-style-type: none;
-			font-size: 20px;
-			margin: 0 5px;
-			position: static;
-
-			
-			
-			.votes li{
-				display: inline;
-				list-style-type: none;
-				font-size: 40px;
-				margin: 10px 20px;
-
-			}
-			.fi-like{
-				width: 5px;
-				color: black;
-			}
-		}	
-
 	}
 }
 
 
 
-.button{
-	background-color: #0079a3;
-}
-
-.tab-bar{
-	background: #0079a3;
-}
 /*END OF LUNCH SPECIAL INDEX*/
+
 /*RESTAURANT SHOW*/
 .row{
 	
 	margin: 1%;
 }
 
-#showresrow0{
-	width: 90%;
+// LOCATION
 
-	#showrow0col1{
-
-		text-align: left;
-
-	.advsearch{
-		text-decoration: none;
-		font-size: 20px;
-	}
-
-}
-
-#showrow0col2{
-
-		text-align: right;
-
-
-	a{
-		text-decoration: none;
-		font-size: 20px;
-	}
-
-}
-}
-	
-
-#showresrow1{
-	border: 1px solid;
-	border-radius: 5px;
-	background: white;
-	padding: 2px;
-	width: 95%;
-
-		#showrescol1{
-			float: left;
-			width: 50%;
-			height: 100%;
-			margin: auto 1%;
-		}
-
-		#showrescol2{
-			float: left;
-
-		}
-		#map{
-			border: 1px solid;
-			float: right;
-		}
-}
-
-#showresrow2{
-	border: 1px solid;
-	border-radius: 5px;
-	background: white;
-	width: 95%;
-	height: auto;
-		
-		#showrescol1{
-			margin: 1%;
-		}
-		
-}
-
-#showresrow3{
-	border: 1px solid;
-	border-radius: 5px;
-	background: white;
-	width: 95%;
-		
-		#showrescol1{
-			margin: 1%;
-		}
-	
-}
-
-#spe1row1{
-		height: 160px;
-	#col1{
-		float: left;
-		width: 80%;
-		
-		ul{
-			li{
-				list-style: none;
-				display: inline-block;
-				font-size: 20px;
-
-				a{
-					text-decoration: none;
-				}
-			}
-		}
-	
-	}
-
-	#col2{
-		
-	}
-}
-#spe1row2{
-	clear: both;
-}
-
-#lunchforrest{
-
-	#col1{
-		float: left;
-		width: 70%;
-		ul{
-			li{
-				list-style: none;
-				display: inline-block;
-				font-size: 16px;
-				a{
-					text-decoration: none;
-				}
-			}
-		}
-	}
-	#col2{
-		float: left;
-	}
+#main_new_location{
+	margin: 10% 30%; 
 }
 
 @media screen and (max-width: 650px) {
-#content{
-  width: 90%;
-  margin: 1% auto;
-  background: #f0f0f0;
 
-  	a{
-  		text-decoration: none;
-  	}
-
-	#col1{
-		display: none;
-		
-	}
-
-	#col2{
-		width: 75%;
-		float: left;
-		#col2row1{
-			width: 100%;
-			height: 80px;
-			
-			#secol1{
-				float: left;
-				width: 80%;
-				margin-right: 10px;
-			}
-		}
-
-		#col2row2{
-			width: 100%;
-			height: 10px;
-			#thirdcol1{
-				width: 70%;
-				float: left;
-				
-			}
-			#thirdcol2{
-				width: 30%;
-				float: left;
-				text-align: right;
-			}
-		}
-	}
-	#col3{
-		width: 20%;
-		float: left;
-
-		
-		#pricerow{
-			height: 90px;
-			width: 70px;
-			text-align: center;
-			margin: auto;
-		}
-		#votesrow{
-			width: 80px;
-			text-align: left;
-			position: fixed;
-			
-			li{
-				
-				display: inline;
-				font-size: 15px;
-				margin-right: auto;
-				padding: 0;
-				
-			}
-			
-		}
-		}	
-
-	}
-
+#main_new_location{
+	margin: 1% 10%; 
+}
 
 }
 
