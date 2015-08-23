@@ -11,6 +11,8 @@
 
   <tbody>
     <% @pictures.each do |picture| %>
+      <%= image_tag picture.image.url(:medium) %>
+      <%= picture.lunch_special_id %>
       <tr>
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
@@ -21,5 +23,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Picture', new_picture_path %>
